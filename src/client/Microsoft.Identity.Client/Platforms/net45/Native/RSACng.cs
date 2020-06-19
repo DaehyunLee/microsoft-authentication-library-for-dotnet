@@ -345,15 +345,15 @@ namespace Microsoft.Identity.Client.Platforms.net45.Native
         {
             if (m_signatureHashAlgorithm == CngAlgorithm.Sha256)
             {
-                return new SHA256Cng();
+                return SHA256Cng.Create();
             }
             else if (m_signatureHashAlgorithm == CngAlgorithm.Sha384)
             {
-                return new SHA384Cng();
+                return SHA384Cng.Create();
             }
             else if (m_signatureHashAlgorithm == CngAlgorithm.Sha512)
             {
-                return new SHA512Cng();
+                return SHA512Cng.Create();
             }
             else
             {

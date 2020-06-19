@@ -41,7 +41,7 @@ namespace Microsoft.Identity.Client.Platforms.net45
 
         public byte[] CreateSha256HashBytes(string input)
         {            
-            using (var sha = new SHA256Cng())
+            using (var sha = SHA256Cng.Create())
             {
                 return sha.ComputeHash(Encoding.UTF8.GetBytes(input));
             }
@@ -78,7 +78,7 @@ namespace Microsoft.Identity.Client.Platforms.net45
 
             byte[] messageBytes = Encoding.UTF8.GetBytes(message);
             var rsa = GetCryptoProviderForSha256(certificate);
-            using (var sha = new SHA256Cng())
+            using (var sha = SHA256Cng.Create())
             {
                 return rsa.SignData(messageBytes, sha);
             };
